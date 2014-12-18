@@ -1,0 +1,768 @@
+<!doctype HTML>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel='stylesheet' href='http://nvd3.org/assets/css/nv.d3.css'>
+    
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js' type='text/javascript'></script>
+    <script src='http://d3js.org/d3.v3.min.js' type='text/javascript'></script>
+    <script src='http://timelyportfolio.github.io/rCharts_nvd3_tests/libraries/widgets/nvd3/js/nv.d3.min-new.js' type='text/javascript'></script>
+    <script src='http://nvd3.org/assets/lib/fisheye.js' type='text/javascript'></script>
+    
+    <style>
+    .rChart {
+      display: block;
+      margin-left: auto; 
+      margin-right: auto;
+      width: 650px;
+      height: 800px;
+    }  
+    </style>
+    
+  </head>
+  <body >
+    
+    <div id = 'chart11d494e8f4fa4' class = 'rChart nvd3'></div>    
+    <script type='text/javascript'>
+ $(document).ready(function(){
+      drawchart11d494e8f4fa4()
+    });
+    function drawchart11d494e8f4fa4(){  
+      var opts = {
+ "dom": "chart11d494e8f4fa4",
+"width":    650,
+"height":    800,
+"x": "reaction",
+"y": "count",
+"group": "drug",
+"type": "multiBarHorizontalChart",
+"id": "chart11d494e8f4fa4" 
+},
+        data = [
+ {
+ "reaction": "Gastrointestinal haemorrhage",
+"outcome": "HO",
+"count":           -604,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Death",
+"outcome": "DE",
+"count":           -438,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Anaemia",
+"outcome": "HO",
+"count":           -291,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Cerebrovascular accident",
+"outcome": "HO",
+"count":           -276,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Fall",
+"outcome": "HO",
+"count":           -267,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Haemorrhage",
+"outcome": "HO",
+"count":           -263,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Cerebrovascular accident",
+"outcome": "OT",
+"count":           -221,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Dyspnoea",
+"outcome": "HO",
+"count":           -217,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "International normalised ratio increased",
+"outcome": "HO",
+"count":           -215,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Haemorrhage",
+"outcome": "OT",
+"count":           -172,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Renal failure acute",
+"outcome": "HO",
+"count":           -169,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Pulmonary embolism",
+"outcome": "HO",
+"count":           -156,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Haemoglobin decreased",
+"outcome": "HO",
+"count":           -152,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Rectal haemorrhage",
+"outcome": "HO",
+"count":           -149,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Asthenia",
+"outcome": "HO",
+"count":           -147,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Deep vein thrombosis",
+"outcome": "OT",
+"count":           -146,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Gastrointestinal haemorrhage",
+"outcome": "OT",
+"count":           -146,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Pulmonary embolism",
+"outcome": "OT",
+"count":           -145,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Gastrointestinal haemorrhage",
+"outcome": "DE",
+"count":           -138,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Haemorrhage",
+"outcome": "DE",
+"count":           -132,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Vomiting",
+"outcome": "HO",
+"count":           -132,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Cerebral haemorrhage",
+"outcome": "HO",
+"count":           -131,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Melaena",
+"outcome": "HO",
+"count":           -131,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Death",
+"outcome": "HO",
+"count":           -126,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Pneumonia",
+"outcome": "HO",
+"count":           -125,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "International normalised ratio increased",
+"outcome": "OT",
+"count":           -125,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Haematoma",
+"outcome": "HO",
+"count":           -123,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Nausea",
+"outcome": "HO",
+"count":           -123,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Fall",
+"outcome": "OT",
+"count":           -120,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Hypotension",
+"outcome": "HO",
+"count":           -118,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Fall",
+"outcome": "DE",
+"count":           -117,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Dizziness",
+"outcome": "HO",
+"count":           -115,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Diarrhoea",
+"outcome": "HO",
+"count":           -112,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Headache",
+"outcome": "HO",
+"count":           -112,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Dyspnoea",
+"outcome": "OT",
+"count":           -112,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Renal failure",
+"outcome": "HO",
+"count":           -110,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Cerebral haemorrhage",
+"outcome": "DE",
+"count":           -108,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Drug interaction",
+"outcome": "HO",
+"count":           -108,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Dizziness",
+"outcome": "OT",
+"count":           -105,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Gastrointestinal haemorrhage",
+"outcome": "LT",
+"count":           -104,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Nausea",
+"outcome": "OT",
+"count":           -104,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Drug ineffective",
+"outcome": "HO",
+"count":           -102,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Haemorrhage intracranial",
+"outcome": "HO",
+"count":           -100,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Syncope",
+"outcome": "HO",
+"count":            -97,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Drug interaction",
+"outcome": "OT",
+"count":            -97,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Deep vein thrombosis",
+"outcome": "HO",
+"count":            -96,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Haematuria",
+"outcome": "HO",
+"count":            -95,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Ischaemic stroke",
+"outcome": "HO",
+"count":            -95,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Anaemia",
+"outcome": "OT",
+"count":            -95,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Headache",
+"outcome": "OT",
+"count":            -93,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Chest pain",
+"outcome": "HO",
+"count":            -92,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Angioedema",
+"outcome": "OT",
+"count":            -92,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Drug ineffective",
+"outcome": "OT",
+"count":            -92,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Malaise",
+"outcome": "HO",
+"count":            -91,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Subdural haematoma",
+"outcome": "HO",
+"count":            -89,
+"drug": "Blood and blood forming organs" 
+},
+{
+ "reaction": "Angioedema",
+"outcome": "OT",
+"count":            246,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Gastrointestinal haemorrhage",
+"outcome": "HO",
+"count":            120,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Incorrect drug administration duration",
+"outcome": "OT",
+"count":            114,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Anaemia",
+"outcome": "HO",
+"count":             96,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Wrong technique in drug usage process",
+"outcome": "OT",
+"count":             78,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Urticaria",
+"outcome": "OT",
+"count":             75,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Off label use",
+"outcome": "OT",
+"count":             66,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Death",
+"outcome": "DE",
+"count":             54,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Cough",
+"outcome": "OT",
+"count":             51,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Pneumonia",
+"outcome": "OT",
+"count":             51,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Pyrexia",
+"outcome": "HO",
+"count":             48,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Rectal haemorrhage",
+"outcome": "HO",
+"count":             48,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Dizziness",
+"outcome": "OT",
+"count":             48,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Dyspnoea",
+"outcome": "OT",
+"count":             48,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Epistaxis",
+"outcome": "OT",
+"count":             48,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Pyrexia",
+"outcome": "OT",
+"count":             48,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Faeces discoloured",
+"outcome": "HO",
+"count":             45,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Melaena",
+"outcome": "HO",
+"count":             45,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Wrong technique in drug usage process",
+"outcome": "HO",
+"count":             45,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Large granular lymphocytosis",
+"outcome": "OT",
+"count":             45,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Rash",
+"outcome": "OT",
+"count":             45,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Gastric haemorrhage",
+"outcome": "HO",
+"count":             42,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Nausea",
+"outcome": "HO",
+"count":             42,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Fall",
+"outcome": "OT",
+"count":             42,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Abdominal pain",
+"outcome": "HO",
+"count":             39,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Diarrhoea",
+"outcome": "HO",
+"count":             39,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Vomiting",
+"outcome": "HO",
+"count":             39,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Drug ineffective",
+"outcome": "OT",
+"count":             39,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Pain",
+"outcome": "OT",
+"count":             39,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Haemoglobin decreased",
+"outcome": "HO",
+"count":             36,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Asthma",
+"outcome": "OT",
+"count":             36,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Colitis microscopic",
+"outcome": "OT",
+"count":             36,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Diarrhoea",
+"outcome": "OT",
+"count":             36,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Gastrointestinal haemorrhage",
+"outcome": "OT",
+"count":             36,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Chest pain",
+"outcome": "HO",
+"count":             33,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Renal failure acute",
+"outcome": "HO",
+"count":             33,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Sepsis",
+"outcome": "HO",
+"count":             33,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Anaemia",
+"outcome": "OT",
+"count":             33,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Hypersensitivity",
+"outcome": "OT",
+"count":             33,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Myocardial infarction",
+"outcome": "OT",
+"count":             33,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Nausea",
+"outcome": "OT",
+"count":             33,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Overdose",
+"outcome": "OT",
+"count":             33,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Pleural effusion",
+"outcome": "OT",
+"count":             33,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Throat irritation",
+"outcome": "OT",
+"count":             33,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Asthenia",
+"outcome": "HO",
+"count":             30,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Haemorrhagic anaemia",
+"outcome": "HO",
+"count":             30,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Abdominal discomfort",
+"outcome": "OT",
+"count":             30,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Abdominal pain upper",
+"outcome": "OT",
+"count":             30,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Anaphylactic reaction",
+"outcome": "OT",
+"count":             30,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Bronchospasm",
+"outcome": "OT",
+"count":             30,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Chest pain",
+"outcome": "OT",
+"count":             30,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Choking",
+"outcome": "OT",
+"count":             30,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Drug hypersensitivity",
+"outcome": "OT",
+"count":             30,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Gastric haemorrhage",
+"outcome": "OT",
+"count":             30,
+"drug": "Aspirin" 
+},
+{
+ "reaction": "Malaise",
+"outcome": "OT",
+"count":             30,
+"drug": "Aspirin" 
+} 
+]
+  
+      if(!(opts.type==="pieChart" || opts.type==="sparklinePlus" || opts.type==="bulletChart")) {
+        var data = d3.nest()
+          .key(function(d){
+            //return opts.group === undefined ? 'main' : d[opts.group]
+            //instead of main would think a better default is opts.x
+            return opts.group === undefined ? opts.y : d[opts.group];
+          })
+          .entries(data);
+      }
+      
+      if (opts.disabled != undefined){
+        data.map(function(d, i){
+          d.disabled = opts.disabled[i]
+        })
+      }
+      
+      nv.addGraph(function() {
+        var chart = nv.models[opts.type]()
+          .width(opts.width)
+          .height(opts.height)
+          
+        if (opts.type != "bulletChart"){
+          chart
+            .x(function(d) { return d[opts.x] })
+            .y(function(d) { return d[opts.y] })
+        }
+          
+         
+        chart
+  .stacked(true)
+  .tooltipContent( function(key, x, y){
+         var format = d3.format('0,000');
+         return '<h3>' + key + ', Adverse reaction : ' + x + '</h3>' + 
+         '<p>' + 'Counts : ' + y + '</p>'
+         } )
+  .color([ "blue", "red" ])
+  .margin({
+ "left":    200 
+})
+          
+        
+
+        
+        
+        chart.yAxis
+  .axisLabel("Count")
+  .tickFormat( function(d) {
+                          return d3.format(',.1f')(Math.abs(d) / 1)
+                          } )
+      
+       d3.select("#" + opts.id)
+        .append('svg')
+        .datum(data)
+        .transition().duration(500)
+        .call(chart);
+
+       nv.utils.windowResize(chart.update);
+       return chart;
+      });
+    };
+</script>
+    
+    <script></script>    
+  </body>
+</html>
