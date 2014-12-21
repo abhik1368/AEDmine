@@ -1,0 +1,5 @@
+d1<-get.Names("Aspirin")
+d2<-get.Names("Atorvastatin")
+d1se<-get.SideEffects(d1,"Aspirin")
+d2se<-get.SideEffects(d2,"Atorvastatin")
+get.Vis(d1se,d2se,top=50,color=("blue","red"))
