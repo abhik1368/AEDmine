@@ -1,3 +1,4 @@
+# Compare two query drugs
 d1<-get.Names("Aspirin")
 d2<-get.Names("Atorvastatin")
 d1se<-get.SideEffects(d1,"Aspirin")
