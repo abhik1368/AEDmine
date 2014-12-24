@@ -2,7 +2,7 @@ library(foreach)
 library(plyr)
 library(doParallel)
 c<-detectCores()
-cl <- makeCluster(c)
+cl <- makeCluster(c)  
 registerDoParallel(cl)
 
 get.Names <- function(drug){
@@ -36,10 +36,15 @@ get.Names <- function(drug){
 
 get.SideEffects <- function(all.names,drugname){
   d.data<-data.frame()
+  patient <-read.table("faers_ascii_2012q4/ascii/demo12q4.txt",sep = "$", header = T, fill = T, quote = "")
   drug <- read.table("faers_ascii_2012q4/ascii/drug12q4.txt", sep = "$", header = T, fill = T, quote = "")
   reaction <- read.table("faers_ascii_2012q4/ascii/reac12q4.txt", sep = "$", header = T, fill = T, quote = "")
   outcomes <- read.table("faers_ascii_2012q4/ascii/outc12q4.txt", sep = "$", header = T, fill = T, quote = "")
-  #indication <-read.table("faers_ascii_2012q4/ascii/indi12q4.txt",sep = "$", header = T, fill = T, quote = "")
+  indication <-read.table("faers_ascii_2012q4/ascii/indi12q4.txt",sep = "$", header = T, fill = T, quote = "")
+  response <- read.table("faers_ascii_2012q4/ascii/rpsr12q4.txt",sep = "$", header = T, fill = T, quote = "")
+  ther <-read.table("faers_ascii_2012q4/ascii/ther12q4.txt",sep = "$", header = T, fill = T, quote = "")
+  
+  
   d.data <- foreach(i=1:length(all.names), .combine=rbind) %dopar% {
     drug[(grepl(all.names[i], drug$drugname, ignore.case = T)) & drug$drug_seq == 1, ] }
   
@@ -52,14 +57,15 @@ get.SideEffects <- function(all.names,drugname){
   n1.df$drug<-drugname
   return(n1.df)
 }
-pyramidPlot <- function(data.df,colors=NULL){
+
+pyramidPlot <- function(new.df,colors=NULL){
   library(rCharts)
   n1 <- nPlot(
     y = 'count',
     x = 'reaction',
     group = 'drug',
     type = 'multiBarHorizontalChart',
-    data = data.df
+    data = new.df
     )
   n1$chart(stacked = TRUE)
   n1$chart(tooltipContent = "#! function(key, x, y){
@@ -88,16 +94,13 @@ pyramidPlot <- function(data.df,colors=NULL){
 }
 
 
-get.Vis <- function(d1,d2,top,col=c("blue","red")){
-  #d1<-d1se
-  #d2<-d2se
-  #top=50
-  #col=c("blue","red")
+get.Vis <- function(d1,d2,top,col){
   d1$count<- -1 * d1$count
   new.df<-rbind(d1[1:top,],d2[1:top,])
   new.df<-new.df[order(new.df$count, decreasing = T), ]
   new.df$count<-as.numeric(new.df$count)
   new.df$drug<-as.factor(new.df$drug)
+  print (head(new.df))
   p1<-pyramidPlot(new.df,colors=col)
   return(p1)
 }
