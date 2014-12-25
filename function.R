@@ -58,8 +58,9 @@ get.SideEffects <- function(all.names,drugname){
   return(n1.df)
 }
 
-pyramidPlot <- function(new.df,colors=NULL){
+pyramidPlot1 <- function(new.df,colors=NULL){
   library(rCharts)
+  #colors<-col
   n1 <- nPlot(
     y = 'count',
     x = 'reaction',
@@ -67,13 +68,12 @@ pyramidPlot <- function(new.df,colors=NULL){
     type = 'multiBarHorizontalChart',
     data = new.df
     )
-  n1$chart(stacked = TRUE)
   n1$chart(tooltipContent = "#! function(key, x, y){
    var format = d3.format('0,000');
    return '<h3>' + key + ', Adverse reaction : ' + x + '</h3>' +
    '<p>' + 'Counts : ' + y + '</p>'
    } !#")
-  if (max(new.df$count >= 20)) {
+  if (max(new.df$count >= 0)) {
     n1$yAxis(axisLabel = "Count",
              tickFormat = "#! function(d) {
             return d3.format(',.1f')(Math.abs(d) / 1)
@@ -93,14 +93,65 @@ pyramidPlot <- function(new.df,colors=NULL){
    n1
 }
 
+pyramidPlot2 <- function(newdat,colors=NULL){
+  library(rCharts)
+  colors=c("blue","red")
+  n<-newdat[complete.cases(newdat),]
+  n1 <- nPlot(
+    y = 'count',
+    x = 'reaction',
+    group = 'drug',
+    type = 'multiBarHorizontalChart',
+    data = n
+  )
+  n1$chart(tooltipContent = "#! function(key, x, y){
+           var format = d3.format('0,000');
+           return '<h3>' + key + ', Adverse reaction : ' + x + '</h3>' +
+           '<p>' + 'Counts : ' + y + '</p>'
+} !#")
+  if (1) {
+    n1$yAxis(axisLabel = "Count",
+             tickFormat = "#! function(d) {
+             return d3.format(',.1f')(Math.abs(d) / 1)
+  } !#")
+    } else {
+      n1$yAxis(axisLabel = "Count",
+               tickFormat = "#! function(d) {
+               return d3.format(',.0f')(Math.abs(d) / 1)
+               } !#")
+    }
+  if (!is.null(colors)) {
+    n1$chart(color = colors)
+  }
+  #n1$chart(stacked = TRUE)
+  n1$set(height=800,width=650)
+  n1$chart(margin = list(left=200))
+  n1
+  }
 
-get.Vis <- function(d1,d2,top,col){
+get.Vis <- function(d1,d2,top,col,out=NULL){
   d1$count<- -1 * d1$count
   new.df<-rbind(d1[1:top,],d2[1:top,])
   new.df<-new.df[order(new.df$count, decreasing = T), ]
   new.df$count<-as.numeric(new.df$count)
   new.df$drug<-as.factor(new.df$drug)
-  print (head(new.df))
-  p1<-pyramidPlot(new.df,colors=col)
-  return(p1)
+  if (length(out) > 0){
+    l <- length(out)
+    odt<-data.frame()
+    for (i in 1:l){
+      ndf<-subset(new.df, new.df$outcome==out[i])
+      odt<-rbind(odt,ndf)
+    }
+    newdat<-odt
+    #print(new.df)
+    newdat<-newdat[order(new.df$count, decreasing = T), ]
+    newdat$count<-as.numeric(newdat$count)
+    newdat$drug<-as.factor(newdat$drug)
+    return(pyramidPlot2(newdat,colors=col))
+  }  
+  else {
+    #print(new.df)
+    return(pyramidPlot1(new.df,colors=col))
+  }
 }
+
