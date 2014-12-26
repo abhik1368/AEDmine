@@ -5,6 +5,10 @@ c<-detectCores()
 cl <- makeCluster(c)  
 registerDoParallel(cl)
 
+# Get the brandnames of drugs
+# param all.names : all the brandnames of drugs for a query drug 
+# param drugname : query drug name
+
 get.Names <- function(drug){
   dbclass<-read.csv("dbatc.csv",header=TRUE,stringsAsFactors=FALSE)
   dnames<-read.csv("brandnames.csv",header=TRUE,stringsAsFactors=FALSE)
@@ -34,6 +38,9 @@ get.Names <- function(drug){
 # you can add or remote grepl statements depending on the number of brand names you want to look over.
 # For all the names for a given query collect the data and bind to a dataframe
 
+# param all.names : all the brandnames of drugs for a query drug 
+# param drugname : query drug name
+
 get.SideEffects <- function(all.names,drugname){
   d.data<-data.frame()
   patient <-read.table("faers_ascii_2012q4/ascii/demo12q4.txt",sep = "$", header = T, fill = T, quote = "")
@@ -57,6 +64,11 @@ get.SideEffects <- function(all.names,drugname){
   n1.df$drug<-drugname
   return(n1.df)
 }
+
+
+## create pyramid plot for comparing class of drugs to a drug
+# param newdat : dataframe of all classes with the query drug
+# param colors : a vector of set of colors
 
 pyramidPlot1 <- function(new.df,colors=NULL){
   library(rCharts)
@@ -93,6 +105,9 @@ pyramidPlot1 <- function(new.df,colors=NULL){
    n1
 }
 
+## create pyramid plot for comparing two types of drugs
+# param newdat : dataframe of drugs
+
 pyramidPlot2 <- function(newdat,colors=NULL){
   library(rCharts)
   colors=c("blue","red")
@@ -128,6 +143,13 @@ pyramidPlot2 <- function(newdat,colors=NULL){
   n1$chart(margin = list(left=200))
   n1
   }
+
+## Function to create visualization
+# param d1: dataframe containing side effects for drug 1
+# param d2: dataframe containing side effects for drug 2
+# param top: top number of drug by frequency
+# param col: a vector containing sets of colors
+# param out: a vector containg outcomes code example "HO","OT","LT"
 
 get.Vis <- function(d1,d2,top,col,out=NULL){
   d1$count<- -1 * d1$count

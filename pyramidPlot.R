@@ -1,5 +1,3 @@
-library(devtools)
-install_github('ramnathv/rCharts@dev')
 library(rCharts)
 
 ## Plot pyramid plots usinf NDV3 javascript library
