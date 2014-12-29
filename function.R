@@ -43,13 +43,13 @@ get.Names <- function(drug){
 
 get.SideEffects <- function(all.names,drugname){
   d.data<-data.frame()
-  patient <-read.table("faers_ascii_2012q4/ascii/demo12q4.txt",sep = "$", header = T, fill = T, quote = "")
+  #patient <-read.table("faers_ascii_2012q4/ascii/demo12q4.txt",sep = "$", header = T, fill = T, quote = "")
   drug <- read.table("faers_ascii_2012q4/ascii/drug12q4.txt", sep = "$", header = T, fill = T, quote = "")
   reaction <- read.table("faers_ascii_2012q4/ascii/reac12q4.txt", sep = "$", header = T, fill = T, quote = "")
   outcomes <- read.table("faers_ascii_2012q4/ascii/outc12q4.txt", sep = "$", header = T, fill = T, quote = "")
   indication <-read.table("faers_ascii_2012q4/ascii/indi12q4.txt",sep = "$", header = T, fill = T, quote = "")
-  response <- read.table("faers_ascii_2012q4/ascii/rpsr12q4.txt",sep = "$", header = T, fill = T, quote = "")
-  ther <-read.table("faers_ascii_2012q4/ascii/ther12q4.txt",sep = "$", header = T, fill = T, quote = "")
+  #response <- read.table("faers_ascii_2012q4/ascii/rpsr12q4.txt",sep = "$", header = T, fill = T, quote = "")
+  #ther <-read.table("faers_ascii_2012q4/ascii/ther12q4.txt",sep = "$", header = T, fill = T, quote = "")
   
   
   d.data <- foreach(i=1:length(all.names), .combine=rbind) %dopar% {

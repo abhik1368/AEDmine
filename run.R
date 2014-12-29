@@ -6,7 +6,13 @@ d1<-get.Names("Lipitor")
 d2<-get.Names("Crestor")
 d1se<-get.SideEffects(d1,"Lipitor")
 d2se<-get.SideEffects(d2,"Crestor")
-get.Vis(d1se,d2se,75,col=c("blue","red"))
+# Without outcome
+p1<-get.Vis(d1se,d2se,75,col=c("blue","red"))
+p1$save("compare2.html",cdn=TRUE)
+# With outcome hospitilization and other serious
+p2<-get.Vis(d1se,d2se,75,col=c("blue","red"),out=c("OT","HO"))
+p2$save("compare2out.html",cdn=TRUE)
+
 
 
 # Comparing the Risk adverse effect for two types of drugs
@@ -26,7 +32,9 @@ lipitor<-aggregate(count ~ reaction ,data=t, FUN=sum)
 r1.prr<-prr(crestor,lipitor)
 r1.ror<-ror(crestor,lipitor)
 # Write top 10 reactions output as xtable html format
-print(xtable(head(r1,10)) , type="html",file="compare_results1.html")
+print(xtable(head(r1.prr,10)) , type="html",file="compare_results_prr.html")
+print(xtable(head(r1.ror,10)) , type="html",file="compare_results_ror.html")
+
 
 # compare lipitor against crestor 
 r2<-riskratio(lipitor,crestor)
